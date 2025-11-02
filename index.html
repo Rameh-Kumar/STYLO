@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <!-- Updated Apple Touch Icons for better iOS integration -->
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>STYLON: AI Virtual Try-On & Fashion Discovery</title>
+    <meta name="description" content="Instantly try on clothes from your favorite stores with our AI-powered virtual fitting room. Upload your photo, discover new styles, and shop with confidence. Welcome to the future of fashion." />
+    <meta name="keywords" content="fashion, online shopping, clothing, AI fashion, virtual try-on, style, apparel, trends, outfit visualizer, AI stylist" />
+    <meta name="author" content="STYLON" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://stylon-app.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="STYLON" />
+    <meta property="og:url" content="https://stylon-app.com/" />
+    <meta property="og:title" content="STYLON: AI Virtual Try-On & Fashion Discovery" />
+    <meta property="og:description" content="Instantly try on clothes with our AI-powered virtual fitting room. Upload your photo, discover new styles, and shop with confidence." />
+    <meta property="og:image" content="https://stylon-app.com/public/stylon-og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A model showcasing the virtual try-on feature of STYLON" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@stylon_app" />
+    <meta property="twitter:url" content="https://stylon-app.com/" />
+    <meta property="twitter:title" content="STYLON: AI Virtual Try-On & Fashion Discovery" />
+    <meta property="twitter:description" content="Instantly try on clothes with our AI-powered virtual fitting room. Upload your photo, discover new styles, and shop with confidence." />
+    <meta property="twitter:image" content="https://stylon-app.com/public/stylon-og-image.png" />
+    <meta property="twitter:image:alt" content="A model showcasing the virtual try-on feature of STYLON" />
+
+    <!-- PWA Manifest & Theme -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#008080" />
+    
+    <!-- AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-4077008126781068">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4077008126781068" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-teal': '#008080',
+              'brand-marigold': '#FFC107',
+              'brand-bg': '#FFF8F0',
+              'brand-surface': '#FFFFFF',
+              'brand-text': '#2a2a2a',
+              'brand-subtle': '#8a8a8a',
+              'brand-border': '#EAE0D5',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Instrument Serif', 'serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.10.0",
+    "react-image-crop": "https://esm.sh/react-image-crop@^11.0.6",
+    "framer-motion": "https://esm.sh/framer-motion@^11.2.12",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^2.4.0",
+    "@tsparticles/react": "https://esm.sh/@tsparticles/react@^3.0.0",
+    "@tsparticles/engine": "https://esm.sh/@tsparticles/engine@^3.5.0",
+    "@tsparticles/slim": "https://esm.sh/@tsparticles/slim@^3.5.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.43.4",
+    "firebase/app": "https://esm.sh/firebase@10.12.2/app",
+    "firebase/analytics": "https://esm.sh/firebase@10.12.2/analytics",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.5.0/"
+  }
+}
+</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://esm.sh/react-image-crop@^11.0.6/dist/ReactCrop.css" />
+    <link rel="stylesheet" href="/index.css" />
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('share')) {
+          const root = document.getElementById('root');
+          if (root) {
+            const loaderHTML = `
+              <div style="font-family: Inter, sans-serif; background-color: #FFF8F0; color: #2a2a2a; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <svg style="animation: spin 1s linear infinite; height: 2.5rem; width: 2.5rem; color: #008080;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle style="opacity: 0.25;" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path style="opacity: 0.75;" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p style="margin-top: 1rem; font-size: 1.125rem; line-height: 1.75rem; font-family: 'Instrument Serif', serif; color: #8a8a8a;">Loading Shared Look...</p>
+                <style>
+                  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                </style>
+              </div>
+            `;
+            root.innerHTML = loaderHTML;
+          }
+        }
+      })();
+    </script>
+    <noscript>
+      <div style="width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #FFF8F0; color: #2a2a2a; font-family: sans-serif; text-align: center; padding: 2rem;">
+        <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">JavaScript Is Required</h1>
+        <p style="font-size: 1.1rem; max-width: 500px;">STYLON's virtual try-on experience requires JavaScript to function. Please enable it in your browser settings to continue.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
