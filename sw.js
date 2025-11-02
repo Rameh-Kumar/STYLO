@@ -92,21 +92,31 @@ self.addEventListener('fetch', event => {
                 return cachedResponse;
             }
             
-            // Otherwise, fetch from the network.
+            // For API calls, always fetch from network and don't cache
+            if (url.hostname.includes('generativelanguage.googleapis.com') || 
+                url.hostname.includes('supabase.co')) {
+                return fetch(event.request);
+            }
+            
+            // For other requests, try network first, then cache
             return fetch(event.request).then(networkResponse => {
-                const isApiCall = url.hostname.includes('generativelanguage') || url.hostname.includes('supabase.co');
-                const isAdScript = url.hostname.includes('revenuecpmgate.com') || url.hostname.includes('googlesyndication.com');
+                const isAdScript = url.hostname.includes('revenuecpmgate.com') || 
+                                 url.hostname.includes('googlesyndication.com');
                 
-                // Only cache valid responses for static assets.
-                if (networkResponse && networkResponse.status === 200 && !isApiCall && !isAdScript) {
+                // Only cache valid responses for static assets that aren't ads
+                if (networkResponse && networkResponse.status === 200 && !isAdScript) {
                     return caches.open(CACHE_NAME).then(cache => {
                         cache.put(event.request, networkResponse.clone());
                         return networkResponse;
                     });
                 }
                 
-                // Return the network response without caching it if it's not a static asset.
                 return networkResponse;
+            }).catch(() => {
+                // If network fails, try to get from cache
+                return caches.match(event.request).then(cachedResponse => {
+                    return cachedResponse || new Response('Network error', { status: 408 });
+                });
             });
         })
     );
